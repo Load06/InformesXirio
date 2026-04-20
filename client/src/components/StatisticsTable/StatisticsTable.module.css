@@ -1,0 +1,123 @@
+.container {
+  width: 100%;
+}
+
+.title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--xirio-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.empty {
+  padding: 24px;
+  text-align: center;
+  color: var(--xirio-muted);
+  font-size: 12px;
+  font-style: italic;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.th {
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--xirio-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--xirio-border);
+  white-space: nowrap;
+}
+
+.tr {
+  border-bottom: 1px solid var(--xirio-border-2);
+  transition: background 0.1s;
+}
+
+.tr:hover {
+  background: var(--xirio-surface-2);
+}
+
+.tr:last-child {
+  border-bottom: none;
+}
+
+.objective {
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.td {
+  padding: 7px 12px;
+  color: var(--xirio-text);
+  vertical-align: middle;
+}
+
+.tdRight {
+  padding: 7px 12px;
+  vertical-align: middle;
+  min-width: 140px;
+}
+
+.labelCell {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.threshold {
+  font-weight: 600;
+  color: var(--xirio-text);
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.rowLabel {
+  font-size: 11px;
+  color: var(--xirio-muted);
+}
+
+.pctBar {
+  position: relative;
+  height: 22px;
+  background: var(--xirio-surface-2);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.pctFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.pctText {
+  position: relative;
+  z-index: 1;
+  padding: 0 8px;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--xirio-text);
+  font-family: monospace;
+  white-space: nowrap;
+}
+
+.objectiveBadge {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 10px;
+  color: #10b981;
+  font-weight: 600;
+}

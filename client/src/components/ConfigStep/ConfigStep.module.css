@@ -1,0 +1,835 @@
+/* ConfigStep — tema claro XIRIO */
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 32px 24px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Cabecera ─── */
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  background: var(--xirio-surface);
+  border: 1.5px solid var(--xirio-border);
+  border-radius: 8px;
+  color: var(--xirio-muted);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s;
+  flex-shrink: 0;
+  margin-top: 3px;
+  font-family: inherit;
+  box-shadow: var(--xirio-shadow-sm);
+}
+.backBtn:hover {
+  color: var(--xirio-accent);
+  border-color: var(--xirio-accent-border);
+  background: var(--xirio-accent-bg);
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--xirio-text);
+  margin: 0 0 4px;
+  letter-spacing: -0.6px;
+}
+
+.studyName {
+  font-size: 13px;
+  color: var(--xirio-accent);
+  margin: 0;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ─── Layout de dos columnas ─── */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  flex: 1;
+}
+
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+}
+
+/* ─── Panel (tarjeta) ─── */
+.panel {
+  background: var(--xirio-surface);
+  border: 1.5px solid var(--xirio-border-2);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--xirio-shadow-sm);
+}
+
+.panelHeader {
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--xirio-border-2);
+  background: var(--xirio-surface-2);
+}
+
+.panelTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--xirio-text);
+  margin: 0 0 3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panelTitle::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 14px;
+  background: var(--xirio-accent);
+  border-radius: 2px;
+}
+
+.panelSubtitle {
+  font-size: 12px;
+  color: var(--xirio-muted);
+  margin: 0;
+}
+
+.selectAll {
+  margin-top: 10px;
+}
+
+.selectAllBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: var(--xirio-accent-bg);
+  border: 1px solid var(--xirio-accent-border);
+  border-radius: 6px;
+  color: var(--xirio-accent);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.selectAllBtn:hover {
+  background: var(--xirio-accent);
+  color: white;
+  border-color: var(--xirio-accent);
+}
+
+/* ─── Lista de capas ─── */
+.layerList {
+  padding: 12px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.layerGroup {
+  border: 1px solid var(--xirio-border-2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.layerTitle {
+  padding: 8px 12px;
+  background: var(--xirio-surface-2);
+  border-bottom: 1px solid var(--xirio-border-2);
+}
+
+.layerBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  background: var(--xirio-accent-bg);
+  border: 1px solid var(--xirio-accent-border);
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--xirio-accent);
+  letter-spacing: 0.2px;
+}
+
+.globalBadge {
+  background: rgba(22, 163, 74, 0.08);
+  border-color: rgba(22, 163, 74, 0.3);
+  color: #16a34a;
+}
+
+.resultList {
+  padding: 4px 0;
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.resultItem:hover {
+  background: var(--xirio-surface-2);
+}
+
+.checkbox {
+  accent-color: var(--xirio-accent);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.resultLabel {
+  flex: 1;
+  font-size: 13px;
+  color: var(--xirio-text-2);
+  font-weight: 500;
+}
+
+.statsBadge {
+  font-size: 10px;
+  padding: 2px 7px;
+  background: rgba(217, 119, 6, 0.08);
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  border-radius: 4px;
+  color: #92400e;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+.statsBadge:hover {
+  background: rgba(217, 119, 6, 0.18);
+}
+
+.statsBadgeActive {
+  background: rgba(22, 163, 74, 0.1);
+  border-color: rgba(22, 163, 74, 0.35);
+  color: #166534;
+}
+.statsBadgeActive:hover {
+  background: rgba(22, 163, 74, 0.2);
+}
+
+/* ─── Panel de colores ─── */
+.colorList {
+  padding: 12px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.colorGroup {
+  border: 1px solid var(--xirio-border-2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.colorHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.12s;
+  text-align: left;
+  color: var(--xirio-text);
+  font-family: inherit;
+}
+.colorHeader:hover {
+  background: var(--xirio-surface-2);
+}
+
+.colorPreview {
+  width: 72px;
+  height: 16px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--xirio-border);
+  flex-shrink: 0;
+}
+
+.gradientBar { width: 100%; height: 100%; }
+
+.noColor {
+  width: 100%;
+  height: 100%;
+  background: var(--xirio-border-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  color: var(--xirio-muted);
+}
+
+.colorLabel {
+  flex: 1;
+  font-size: 12.5px;
+  color: var(--xirio-text-2);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ─── Editor de colores ─── */
+.colorEditor {
+  padding: 10px 12px;
+  border-top: 1px solid var(--xirio-border-2);
+  background: var(--xirio-surface-2);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.colorEditorHeader {
+  display: grid;
+  grid-template-columns: 80px 40px 1fr;
+  gap: 8px;
+  font-size: 10px;
+  color: var(--xirio-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--xirio-border);
+}
+
+.colorRow {
+  display: grid;
+  grid-template-columns: 80px 40px 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.thresholdInput {
+  padding: 4px 8px;
+  background: var(--xirio-surface);
+  border: 1.5px solid var(--xirio-border);
+  border-radius: 6px;
+  color: var(--xirio-text);
+  font-size: 11px;
+  font-family: monospace;
+  width: 100%;
+  transition: border-color 0.15s;
+}
+.thresholdInput:focus {
+  outline: none;
+  border-color: var(--xirio-accent);
+  box-shadow: 0 0 0 2px var(--xirio-accent-bg);
+}
+
+.colorInput {
+  width: 100%;
+  height: 26px;
+  border: 1.5px solid var(--xirio-border);
+  border-radius: 6px;
+  background: var(--xirio-surface);
+  cursor: pointer;
+  padding: 2px;
+}
+
+.stopLabel {
+  font-size: 11.5px;
+  color: var(--xirio-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ─── Opacity control ─── */
+.opacityControl {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 220px;
+  max-width: 340px;
+  padding: 0 12px;
+  border-left: 1px solid var(--xirio-border-2);
+  border-right: 1px solid var(--xirio-border-2);
+}
+
+.opacityLabel {
+  font-size: 12px;
+  color: var(--xirio-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.opacitySlider {
+  flex: 1;
+  accent-color: var(--xirio-accent);
+  cursor: pointer;
+  height: 4px;
+}
+
+.opacityValue {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--xirio-accent);
+  font-family: monospace;
+  min-width: 34px;
+  text-align: right;
+}
+
+.mapOptionsRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.toggleGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggleGroupLabel {
+  font-size: 12px;
+  color: var(--xirio-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.toggleButtons {
+  display: flex;
+  border: 1.5px solid var(--xirio-border-2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.toggleBtn {
+  padding: 5px 11px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: inherit;
+  background: transparent;
+  color: var(--xirio-muted);
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.toggleBtn + .toggleBtn {
+  border-left: 1px solid var(--xirio-border-2);
+}
+.toggleBtn:hover:not(.toggleBtnActive) {
+  background: var(--xirio-bg);
+  color: var(--xirio-text);
+}
+.toggleBtnActive {
+  background: var(--xirio-accent);
+  color: white;
+}
+
+/* ─── Footer ─── */
+.errorBanner {
+  padding: 12px 16px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  color: #dc2626;
+  font-size: 13px;
+  border-left: 3px solid #dc2626;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 14px 20px;
+  background: var(--xirio-surface);
+  border: 1.5px solid var(--xirio-border-2);
+  border-radius: 12px;
+  box-shadow: var(--xirio-shadow-sm);
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.summaryCount {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--xirio-text);
+}
+
+.summaryLayers {
+  font-size: 13px;
+  color: var(--xirio-muted);
+}
+
+.generateBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 28px;
+  background: var(--xirio-accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s, box-shadow 0.18s, transform 0.1s;
+  box-shadow: 0 2px 10px rgba(107,24,116,0.3);
+  font-family: inherit;
+}
+.generateBtn:hover:not(:disabled) {
+  background: var(--xirio-accent-h);
+  box-shadow: 0 4px 16px rgba(107,24,116,0.4);
+  transform: translateY(-1px);
+}
+.generateBtn:active:not(:disabled) { transform: translateY(0); }
+.generateBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ─── Stats options panel ─── */
+.statsMasterToggle {
+  border-bottom: 1px solid var(--xirio-border-2);
+  padding-bottom: 10px;
+  margin-bottom: 4px;
+  font-weight: 600 !important;
+}
+
+.statsPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.statsPanelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.statsOptionsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+}
+
+.statsOptionLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--xirio-text);
+  cursor: pointer;
+  user-select: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+.statsOptionLabel:hover {
+  background: var(--xirio-surface-2, #f5f0f7);
+}
+.statsOptionLabel input[type="checkbox"] {
+  accent-color: var(--xirio-accent);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.statsOptionDesc {
+  font-size: 11px;
+  color: var(--xirio-muted);
+  display: block;
+  margin-top: 1px;
+}
+
+/* ─── Green threshold row ─── */
+.greenThresholdRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 10px;
+  padding: 10px 10px 6px;
+  border-top: 1px solid var(--xirio-border-2);
+}
+
+.greenThresholdLabel {
+  font-size: 13px;
+  color: var(--xirio-text);
+  font-weight: 500;
+  flex: 1;
+}
+
+.greenThresholdControl {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.greenThresholdInput {
+  width: 64px;
+  padding: 5px 8px;
+  background: var(--xirio-surface);
+  border: 1.5px solid var(--xirio-border);
+  border-radius: 7px;
+  color: var(--xirio-text);
+  font-size: 13px;
+  font-family: monospace;
+  font-weight: 700;
+  text-align: right;
+  transition: border-color 0.15s;
+}
+.greenThresholdInput:focus {
+  outline: none;
+  border-color: #16a34a;
+  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.12);
+}
+
+.greenThresholdUnit {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--xirio-muted);
+}
+
+/* ─── Doc settings panel (numeración y paginación) ─── */
+.docSettingsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+@media (max-width: 640px) {
+  .docSettingsGrid { grid-template-columns: 1fr; }
+}
+
+.docSettingItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--xirio-border-2);
+}
+.docSettingItem:nth-child(odd) {
+  border-right: 1px solid var(--xirio-border-2);
+}
+.docSettingItem:last-child,
+.docSettingItem:nth-last-child(2):nth-child(odd) {
+  border-bottom: none;
+}
+
+.docSettingLabel {
+  font-size: 13px;
+  color: var(--xirio-text);
+  font-weight: 500;
+  flex: 1;
+}
+
+/* Item a ancho completo (ocupa las 2 columnas del grid) */
+.docSettingItemFull {
+  grid-column: 1 / -1;
+}
+
+/* ─── Orientation toggle ─── */
+.orientationToggle {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.orientationBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  background: var(--xirio-surface);
+  border: 1.5px solid var(--xirio-border);
+  border-radius: 7px;
+  color: var(--xirio-muted);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.orientationBtn:hover {
+  border-color: var(--xirio-accent-border);
+  color: var(--xirio-accent);
+  background: var(--xirio-accent-bg);
+}
+.orientationBtnActive {
+  background: var(--xirio-accent-bg);
+  border-color: var(--xirio-accent);
+  color: var(--xirio-accent);
+  font-weight: 600;
+}
+
+.legendCornerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* ─── Export buttons group ─── */
+.exportButtons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Botón DOCX — variante secundaria */
+.generateDocxBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  background: var(--xirio-surface);
+  color: var(--xirio-accent);
+  border: 2px solid var(--xirio-accent);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s, box-shadow 0.18s, transform 0.1s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.generateDocxBtn:hover:not(:disabled) {
+  background: var(--xirio-accent-bg);
+  box-shadow: 0 2px 10px rgba(107,24,116,0.18);
+  transform: translateY(-1px);
+}
+.generateDocxBtn:active:not(:disabled) { transform: translateY(0); }
+.generateDocxBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ─── Surface correction panel ─── */
+.surfaceCorrBody {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.surfaceCorrHeader {
+  display: grid;
+  grid-template-columns: 1fr 160px 160px;
+  gap: 12px;
+  padding: 6px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--xirio-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--xirio-border-2);
+  margin-bottom: 4px;
+}
+
+.surfaceCorrRow {
+  display: grid;
+  grid-template-columns: 1fr 160px 160px;
+  gap: 12px;
+  align-items: center;
+  padding: 7px 10px;
+  border-radius: 8px;
+  transition: background 0.12s;
+}
+.surfaceCorrRow:hover {
+  background: var(--xirio-surface-2);
+}
+
+.surfaceCorrName {
+  font-size: 13px;
+  color: var(--xirio-text);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.surfaceCorrOriginal {
+  font-size: 12px;
+  color: var(--xirio-muted);
+  font-family: monospace;
+  text-align: right;
+}
+
+.surfaceCorrInputWrap {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.surfaceCorrInput {
+  width: 90px;
+  padding: 5px 8px;
+  background: var(--xirio-surface);
+  border: 1.5px solid var(--xirio-border);
+  border-radius: 7px;
+  color: var(--xirio-text);
+  font-size: 12px;
+  font-family: monospace;
+  font-weight: 600;
+  text-align: right;
+  transition: border-color 0.15s;
+}
+.surfaceCorrInput:focus {
+  outline: none;
+  border-color: var(--xirio-accent);
+  box-shadow: 0 0 0 2px var(--xirio-accent-bg);
+}
+.surfaceCorrInput::placeholder {
+  color: var(--xirio-border);
+  font-weight: 400;
+}
+
+.surfaceCorrUnit {
+  font-size: 12px;
+  color: var(--xirio-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}

@@ -1,0 +1,190 @@
+/* ═══════════════════════════════════════════════════
+   App.css — Layout principal — tema claro XIRIO
+   ═══════════════════════════════════════════════════ */
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--xirio-bg);
+}
+
+/* ─── Barra superior con logo + pasos ─── */
+.steps-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: 60px;
+  background: var(--xirio-sidebar-bg);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+
+.steps-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.steps-brand {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+}
+
+.steps-brand span {
+  color: var(--xirio-accent-light);
+}
+
+/* Separador vertical */
+.steps-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(255,255,255,0.15);
+  margin: 0 20px;
+}
+
+.steps-list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.5);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.step-item.active .step-num {
+  background: var(--xirio-accent);
+  color: white;
+  border-color: var(--xirio-accent);
+  box-shadow: 0 0 0 3px rgba(107,24,116,0.3);
+}
+
+.step-item.done .step-num {
+  background: #16a34a;
+  color: white;
+  border-color: #16a34a;
+}
+
+.step-label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  font-weight: 500;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.step-item.active .step-label { color: rgba(255,255,255,0.9); }
+.step-item.done  .step-label  { color: rgba(255,255,255,0.65); }
+
+.step-arrow {
+  color: rgba(255,255,255,0.2);
+  font-size: 12px;
+  margin: 0 6px;
+}
+
+/* ─── Contenido principal ─── */
+.app-main {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* ─── Leyenda en mapas Leaflet (tema claro) ─── */
+.map-legend {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid var(--xirio-border) !important;
+  border-radius: 10px !important;
+  padding: 9px 11px !important;
+  color: var(--xirio-text);
+  font-family: 'Inter', sans-serif;
+  box-shadow: var(--xirio-shadow) !important;
+  min-width: 80px;
+}
+
+.map-legend .legend-title {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--xirio-accent);
+  margin-bottom: 7px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* Contenedor del gradiente + etiquetas en fila */
+.map-legend .legend-body {
+  display: flex;
+  gap: 6px;
+  align-items: stretch;
+  height: 80px;
+  position: relative;
+}
+
+.map-legend .legend-gradient {
+  width: 12px;
+  flex-shrink: 0;
+  border-radius: 3px;
+  border: 1px solid var(--xirio-border);
+}
+
+/* Contenedor de etiquetas posicionadas absolutamente */
+.map-legend .legend-labels-abs {
+  position: relative;
+  flex: 1;
+  height: 100%;
+}
+
+.map-legend .legend-label-item {
+  position: absolute;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 9px;
+  color: var(--xirio-text-2);
+  font-family: monospace;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* Marcador de sector — no recortar el SVG rotado */
+.sector-marker {
+  background: none !important;
+  border: none !important;
+  overflow: visible !important;
+}
+
+/* Tooltip de sector */
+.sector-tooltip {
+  background: white !important;
+  border: 1px solid var(--xirio-accent-border) !important;
+  color: var(--xirio-text) !important;
+  font-size: 11px !important;
+  border-radius: 6px !important;
+  padding: 4px 8px !important;
+  font-family: 'Inter', sans-serif !important;
+  box-shadow: var(--xirio-shadow-sm) !important;
+}

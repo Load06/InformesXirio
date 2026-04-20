@@ -1,0 +1,46 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(unzip -l \"c:\\\\Vault\\\\02_PRODUCT\\\\VS Code Projects\\\\Informes XIRIO\\\\Ejemplo\\\\Aeropuerto_Barcelona_-_n40n77_Candidatos-Sectores-Estadisticas.zip\")",
+      "Bash(unzip -l \"c:\\\\Vault\\\\02_PRODUCT\\\\VS Code Projects\\\\Informes XIRIO\\\\Ejemplo\\\\Aeropuerto_Barcelona_-_n40n77_Candidatos-Sectores-Estadisticas-interferencia.zip\")",
+      "Bash(cd /tmp)",
+      "Bash(unzip -q \"c:\\\\Vault\\\\02_PRODUCT\\\\VS Code Projects\\\\Informes XIRIO\\\\Ejemplo\\\\Aeropuerto_Barcelona_-_n40n77_Candidatos-Sectores-Estadisticas.zip\")",
+      "Bash(unzip -q aqcov-5gcsv.zip)",
+      "Bash(ls -la aqcov*)",
+      "Bash(unzip -l aqcov-5gcsv.zip)",
+      "Read(//tmp/**)",
+      "Bash(ls -la aq*)",
+      "Bash(iconv -f UTF-16LE -t UTF-8 /tmp/estadisticas_inter/aqReport.csv)",
+      "Bash(unzip -l aqdthaggcsv.zip)",
+      "Bash(unzip -q aqdthaggcsv.zip)",
+      "Bash(python3)",
+      "Bash(perl -le 'open F, \"<:encoding\\(UTF-16LE\\)\", \"aqReport.csv\"; @lines = <F>; for \\(@lines[0..2]\\) { print substr\\($_, 0, 200\\) }')",
+      "Bash(perl -le 'open F, \"<:encoding\\(UTF-16LE\\)\", \"aqReport.csv\"; @lines = <F>; print \"Headers:\\\\n\", $lines[0]; print \"\\\\nData Row:\\\\n\", $lines[1]')",
+      "Bash(unzip -q aquthaggcsv.zip)",
+      "Bash(perl -le 'open F, \"<:encoding\\(UTF-16LE\\)\", \"aqReport.csv\"; @lines = <F>; print \"Headers:\\\\n\", $lines[0]; print \"\\\\n\\\\nData Row:\\\\n\", $lines[1]')",
+      "Bash(unzip -q aqrssi-lyr0csv.zip)",
+      "Bash(perl -le 'open F, \"<:encoding\\(UTF-16LE\\)\", \"aqReportByBS.csv\"; @lines = <F>; chomp\\(@lines\\); print \"File: aqbscov-5g \\(BaseStation-specific 5G Coverage\\)\\\\n\"; print \"Total rows: \", scalar\\(@lines\\), \"\\\\n\"; print \"Number of columns: \", scalar\\(split\\(\";\", $lines[0]\\)\\), \"\\\\n\"; print \"\\\\nHeaders:\\\\n\", $lines[0]; print \"\\\\n\\\\nData Row 1:\\\\n\", $lines[1] if @lines > 1; print \"\\\\n\\\\nData Row 2:\\\\n\", $lines[2] if @lines > 2')",
+      "Bash(ls -lh \"c:\\\\Vault\\\\02_PRODUCT\\\\VS Code Projects\\\\Informes XIRIO\\\\Ejemplo\"/*.zip)",
+      "Bash(awk '{print $9, \"-\", $5}')",
+      "Bash(powershell -Command \"cd 'c:\\\\Vault\\\\02_PRODUCT\\\\VS Code Projects\\\\Informes XIRIO\\\\client'; npx tsc --noEmit 2>&1 | Select-Object -First 60\")",
+      "Bash(cmd /c \"cd \\\\\"c:\\\\Vault\\\\02_PRODUCT\\\\VS Code Projects\\\\Informes XIRIO\\\\client\\\\\" && npx tsc --noEmit 2>&1\")",
+      "Bash(node -e ':*)",
+      "Bash(node -e \"require\\('pizzip'\\); console.log\\('ok'\\)\")",
+      "Bash(node -e \"require\\('docxtemplater'\\); console.log\\('ok'\\)\")",
+      "Bash(node -e \"const m = require\\('docxtemplater-image-module-free'\\); console.log\\('imagemod ok', typeof m\\)\")",
+      "Bash(node -e \"const d = require\\('docxtemplater'\\); console.log\\(d.version || require\\('./node_modules/docxtemplater/package.json'\\).version\\)\")",
+      "Bash(node -e \"const pkg = require\\('docxtemplater/package.json'\\); console.log\\(pkg.version\\);\")",
+      "Bash(node -e \"try { const e = require\\('docxtemplater/expressions.js'\\); console.log\\('ok', typeof e\\); } catch\\(e\\) { console.log\\('err:', e.message\\); }\")",
+      "Bash(node -e \"const pkg = require\\('docxtemplater-image-module-free/package.json'\\); console.log\\(pkg.version\\);\")",
+      "Bash(node -e ' *)",
+      "Bash(npm audit *)",
+      "Bash(npm uninstall *)",
+      "Bash(python3 -c ' *)",
+      "Bash(xargs grep *)",
+      "Read(//c/c/Vault/02_PRODUCT/VS Code Projects/**)"
+    ],
+    "additionalDirectories": [
+      "c:\\Vault\\02_PRODUCT\\VS Code Projects\\Informes XIRIO\\ImagesRadio"
+    ]
+  }
+}

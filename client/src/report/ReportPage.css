@@ -1,0 +1,729 @@
+/* ═══════════════════════════════════════════════════
+   ReportPage.css — Estilos del informe para Puppeteer
+   Tema claro XIRIO: fondo blanco, acento #6b1874
+   ═══════════════════════════════════════════════════ */
+
+/* Variables globales del informe */
+.report {
+  --report-bg:       #ffffff;
+  --report-surface:  #ffffff;
+  --report-surface-2:#f8f6fb;
+  --report-border:   #e5dff0;
+  --report-border-2: #ede8f5;
+  --report-accent:   #6b1874;
+  --report-accent-bg: rgba(107, 24, 116, 0.07);
+  --report-text:     #1a0a2e;
+  --report-text-2:   #4a3b5c;
+  --report-muted:    #7c6d8a;
+  --report-success:  #16a34a;
+  --report-sidebar:  #180828;
+
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11pt;
+  color: var(--report-text);
+  background: var(--report-bg);
+}
+
+.report-loading {
+  padding: 48px;
+  text-align: center;
+  color: var(--report-muted);
+  font-size: 14px;
+}
+
+/* ─── Páginas ─── */
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--report-surface);
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+
+.page-portrait {
+  width: 210mm;
+  min-height: 297mm;
+}
+
+.page-landscape {
+  width: 297mm;
+  min-height: 210mm;
+}
+
+/* ─── Encabezado ─── */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 20px;
+  background: var(--report-accent);
+  color: white;
+  font-size: 9pt;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.page-header-title {
+  font-weight: 600;
+  font-size: 9pt;
+  opacity: 0.95;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 60%;
+}
+
+.page-header-section {
+  font-size: 8pt;
+  opacity: 0.85;
+  text-align: right;
+}
+
+/* ─── Pie de página ─── */
+.page-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 20px;
+  background: var(--report-surface-2);
+  border-top: 1px solid var(--report-border);
+  font-size: 8pt;
+  color: var(--report-muted);
+  flex-shrink: 0;
+}
+
+/* ─── Portada (oscura, como contraste de diseño) ─── */
+.cover-page {
+  background: linear-gradient(145deg, #180828 0%, #2d0a4a 55%, #180828 100%);
+}
+
+.cover-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  gap: 24px;
+  text-align: center;
+}
+
+.cover-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cover-brand {
+  font-size: 22pt;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -1px;
+}
+
+.cover-title {
+  font-size: 20pt;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+  max-width: 500px;
+  margin: 0;
+}
+
+.cover-subtitle {
+  font-size: 13pt;
+  color: rgba(200, 160, 220, 0.9);
+  margin: 0;
+  font-weight: 400;
+}
+
+.cover-meta {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(107, 24, 116, 0.4);
+  border-radius: 12px;
+  padding: 20px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 320px;
+  margin-top: 12px;
+}
+
+.cover-meta-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 10pt;
+}
+
+.cover-meta-row span:first-child {
+  color: rgba(200, 180, 220, 0.75);
+  font-weight: 500;
+}
+
+.cover-meta-row span:last-child {
+  color: #ffffff;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* ─── Secciones de texto ─── */
+.section-content {
+  flex: 1;
+  padding: 32px 40px;
+  overflow: hidden;
+}
+
+.section-heading {
+  font-size: 16pt;
+  font-weight: 700;
+  color: var(--report-accent);
+  letter-spacing: -0.5px;
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--report-accent);
+}
+
+.section-desc {
+  font-size: 10pt;
+  color: var(--report-muted);
+  margin: 0 0 20px;
+}
+
+.section-placeholder {
+  background: var(--report-accent-bg);
+  border: 1px dashed rgba(107, 24, 116, 0.3);
+  border-radius: 10px;
+  padding: 24px 28px;
+}
+
+.section-placeholder p {
+  margin: 0 0 8px;
+  font-size: 10pt;
+  color: var(--report-text-2);
+  line-height: 1.6;
+}
+
+.section-placeholder p:last-child { margin-bottom: 0; }
+
+.placeholder-text {
+  font-style: italic !important;
+  color: var(--report-muted) !important;
+  opacity: 0.65;
+}
+
+/* ─── Tabla de sectores ─── */
+.sector-table-block {
+  margin-bottom: 24px;
+}
+
+.sector-table-title {
+  font-size: 12pt;
+  font-weight: 600;
+  color: var(--report-accent);
+  margin: 0 0 10px;
+}
+
+.sector-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9pt;
+}
+
+.sector-table th {
+  padding: 7px 10px;
+  background: var(--report-accent-bg);
+  color: var(--report-accent);
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 2px solid rgba(107, 24, 116, 0.2);
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.sector-table td {
+  padding: 6px 10px;
+  color: var(--report-text);
+  border-bottom: 1px solid var(--report-border-2);
+  font-family: monospace;
+  font-size: 8.5pt;
+}
+
+.sector-table tr:nth-child(even) td {
+  background: var(--report-surface-2);
+}
+
+/* ─── Página de resultado (landscape) ─── */
+.result-layout {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.result-map {
+  flex: 0 0 65%;
+  position: relative;
+  background: #eae6f2;
+}
+
+.result-map-container {
+  width: 100%;
+  height: 100%;
+  min-height: 160mm;
+}
+
+/* En portrait, el mapa puede ser más alto (más espacio vertical disponible) */
+.page-portrait .result-map-container {
+  min-height: 210mm;
+}
+
+.result-map-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--report-muted);
+  font-size: 10pt;
+  font-style: italic;
+}
+
+/* ─── Leyenda superpuesta al mapa ─── */
+.map-legend-overlay {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.93);
+  border: 1px solid var(--report-border);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1000;
+  min-width: 100px;
+  box-shadow: 0 2px 8px rgba(107, 24, 116, 0.12);
+}
+
+.legend-title-text {
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--report-accent);
+  text-align: center;
+}
+
+.legend-gradient-bar {
+  width: 20px;
+  height: 80px;
+  border-radius: 4px;
+  margin: 0 auto;
+  border: 1px solid var(--report-border);
+}
+
+.legend-labels-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: var(--report-muted);
+}
+
+.legend-label-text {
+  font-size: 7pt;
+  color: var(--report-text-2);
+  font-family: monospace;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+/* ─── Panel de estadísticas ─── */
+.result-stats {
+  flex: 0 0 35%;
+  padding: 20px 20px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-left: 1px solid var(--report-border);
+  overflow: hidden;
+  background: var(--report-surface);
+  position: relative;
+}
+
+.result-stats-logo {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-stats-logo img {
+  max-height: 32px;
+  max-width: 80%;
+  object-fit: contain;
+  opacity: 0.85;
+}
+
+.result-stats-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--report-border);
+}
+
+.result-section-number {
+  font-size: 18pt;
+  font-weight: 700;
+  color: var(--report-accent);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.result-layer-name {
+  font-size: 9pt;
+  color: var(--report-muted);
+  font-weight: 500;
+}
+
+.result-type-name {
+  font-size: 13pt;
+  font-weight: 700;
+  color: var(--report-text);
+  letter-spacing: -0.3px;
+}
+
+/* ─── Tabla de estadísticas en el PDF ─── */
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9pt;
+}
+
+.stats-table th {
+  padding: 6px 8px;
+  background: var(--report-accent-bg);
+  color: var(--report-accent);
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 2px solid rgba(107, 24, 116, 0.2);
+  font-size: 7.5pt;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.stats-table td {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--report-border-2);
+  vertical-align: middle;
+}
+
+.stats-table tr.row-objective {
+  background: rgba(22, 163, 74, 0.05);
+}
+
+.td-threshold {
+  font-family: monospace;
+  font-size: 9pt;
+  color: var(--report-text);
+}
+
+.td-pct {
+  width: 120px;
+}
+
+.pct-bar {
+  position: relative;
+  height: 18px;
+  background: var(--report-border-2);
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.pct-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 3px;
+}
+
+.pct-value {
+  position: relative;
+  z-index: 1;
+  padding: 0 6px;
+  font-weight: 700;
+  font-size: 8pt;
+  color: var(--report-text);
+  font-family: monospace;
+}
+
+.no-stats {
+  font-size: 9pt;
+  color: var(--report-muted);
+  font-style: italic;
+}
+
+/* ─── BsLegendPanel: leyenda de sectores en panel derecho para Mejor Servidor ─── */
+.bs-legend-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.bs-legend-title {
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--report-accent);
+  padding: 4px 0;
+  border-bottom: 1.5px solid rgba(107, 24, 116, 0.15);
+}
+
+.bs-legend-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bs-legend-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 12px;
+}
+
+.bs-legend-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bs-legend-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  border: 1px solid rgba(0,0,0,0.12);
+}
+
+.bs-legend-label {
+  font-size: 9pt;
+  color: var(--report-text);
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.bs-legend-grid-2col .bs-legend-label {
+  font-size: 8pt;
+}
+
+/* ─── StatsInline: bloques en panel derecho (entidad única) ─── */
+.stats-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.stats-inline-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stats-block-title {
+  font-size: 7.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--report-accent);
+  padding: 3px 0;
+  border-bottom: 1.5px solid rgba(107,24,116,0.15);
+  margin-bottom: 2px;
+}
+
+.stats-compact-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8.5pt;
+}
+.stats-compact-table td {
+  padding: 3px 6px;
+  border-bottom: 1px solid var(--report-border-2);
+  vertical-align: middle;
+}
+.stats-compact-table .stats-label-cell {
+  color: var(--report-muted);
+  font-size: 8pt;
+}
+.stats-compact-table .stats-value-cell {
+  font-weight: 700;
+  text-align: right;
+  font-family: monospace;
+}
+
+.stats-threshold-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8pt;
+}
+.stats-threshold-table th {
+  padding: 4px 5px;
+  background: var(--report-accent-bg);
+  color: var(--report-accent);
+  font-weight: 700;
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  text-align: right;
+  border-bottom: 1.5px solid rgba(107,24,116,0.2);
+}
+.stats-threshold-table th:first-child { text-align: left; }
+.stats-threshold-table td {
+  padding: 3px 5px;
+  border-bottom: 1px solid var(--report-border-2);
+  vertical-align: middle;
+  text-align: right;
+  font-size: 7.5pt;
+  font-family: monospace;
+}
+.stats-threshold-table td:first-child {
+  text-align: left;
+  font-family: monospace;
+  color: var(--report-text);
+}
+
+/* ─── StatsTablePage: página adicional landscape ─── */
+.stats-full-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats-full-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 12px 20px;
+  overflow: hidden;
+}
+
+.stats-page-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stats-page-block-title {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--report-accent);
+  padding-bottom: 4px;
+  border-bottom: 2px solid rgba(107,24,116,0.15);
+}
+
+.stats-full-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8pt;
+}
+.stats-full-table th {
+  padding: 5px 6px;
+  background: var(--report-accent-bg);
+  color: var(--report-accent);
+  font-weight: 700;
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  text-align: right;
+  border-bottom: 2px solid rgba(107,24,116,0.2);
+  white-space: nowrap;
+}
+.stats-full-table th.col-entity,
+.stats-full-table th.col-server { text-align: left; }
+
+.stats-full-table .col-entity { min-width: 100px; max-width: 180px; }
+.stats-full-table .col-server { min-width: 100px; max-width: 160px; }
+
+.stats-full-table td {
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--report-border-2);
+  vertical-align: middle;
+  text-align: right;
+  font-size: 7.5pt;
+  font-family: monospace;
+}
+.stats-full-table .col-entity,
+.stats-full-table .col-server,
+.stats-full-table td:first-child { text-align: left; font-family: inherit; }
+.stats-full-table tr:nth-child(even) { background: rgba(107,24,116,0.025); }
+
+.stats-full-table.stats-compact-font,
+.stats-full-table.stats-compact-font th,
+.stats-full-table.stats-compact-font td { font-size: 6.5pt; padding: 3px 4px; }
+
+/* Cabeceras rotadas para tablas con muchos umbrales */
+.th-rotated-parent {
+  height: 60px;
+  vertical-align: bottom;
+  padding: 0 3px 4px;
+}
+.th-rotated {
+  display: inline-block;
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+  white-space: nowrap;
+  font-size: 6.5pt;
+}
+
+.subheader-row td {
+  font-size: 6.5pt;
+  font-weight: 600;
+  color: var(--report-muted);
+  padding: 2px 6px;
+  background: rgba(107,24,116,0.04);
+  text-align: right;
+}
+
+/* ─── Media print: orientaciones ─── */
+@media print {
+  @page {
+    margin: 0;
+  }
+
+  .page-portrait {
+    page: portrait-page;
+  }
+
+  .page-landscape {
+    page: landscape-page;
+  }
+
+  @page portrait-page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  @page landscape-page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  .page {
+    page-break-after: always;
+    break-after: page;
+  }
+}
