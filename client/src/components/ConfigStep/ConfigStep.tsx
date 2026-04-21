@@ -424,7 +424,7 @@ export function ConfigStep() {
                       className={styles.surfaceCorrInput}
                       min={0}
                       max={original ?? undefined}
-                      step={0.01}
+                      step="any"
                       placeholder={original != null ? original.toFixed(2) : ''}
                       value={corrected != null ? corrected : ''}
                       onChange={(e) => {
